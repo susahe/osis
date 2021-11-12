@@ -1,0 +1,25 @@
+
+
+#sidebar{
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color:#fff;
+  transition: all 0.6s cubic-bezier(0.945,0.020,0.270, 0.665);
+  transform-origin: bottom left;
+
+}
+
+#content{
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+
+#sidebar .sidebar-header{
+  padding: 20px;
+  background: #6d7fcc;
+  color: black;
+}

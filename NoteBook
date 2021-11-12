@@ -1,0 +1,477 @@
+
+$db = \Config\Database::connect();
+$data = array(
+   'firstname' => "Sumudu",
+   'lastname' => "Virat",
+);
+
+$query = $db->query("insert into  users(firstname,lastname) values('sumudu','sara')");
+var_dump( $query);
+
+This is the way of testing conneciton in CodeIgniter
+
+
+
+These are important save
+//$query = $db->query("insert into  users(firstname,lastname) values('bala','sara')");
+//	$model->insert($newdata);
+
+
+
+This is how this check
+
+<?php namespace App\Validation;
+use App\Models\UserModel;
+
+
+
+class UserRules {
+  public function validateUser(string $str, string $fields, array $data)
+  {
+  //  echo var_dump($data);
+
+    $model = new UserModel();
+    $user = $model->where('email',$data['email'])
+          ->first();
+    if (!$user)
+      return false;
+    //  echo var_dump($data['password']);
+    //  echo var_dump($user);
+      echo var_dump($user['password']);
+      echo var_dump($data['password']);
+      echo var_dump($user['email']);
+      echo var_dump($data['email']);
+      echo var_dump(password_verify($data['password'],$user['password']));
+     return password_verify($data['password'],$user['password']);
+      // if ($data['password']==$user['password']){
+      //   return true;
+      // }
+      // else{
+      //   return false;
+      // }
+      //return true;
+  }
+
+
+}
+
+
+
+class UserRules {
+  public function validateUser(string $str, string $fields, array $data):bool
+  {
+$db = \Config\Database::connect();
+$query = $db->query('SELECT password FROM users  LIMIT 1');
+$row   = $query->getRowArray();
+//echo $row['password'];
+
+    $model = new UserModel();
+    $user = $model->where('email',$data['email'])
+          ->first();
+    $s = password_hash( '123456',PASSWORD_DEFAULT);
+    $k = trim($user['password']);
+    echo $s;
+    echo "<br/>";
+    echo $k;
+
+  //  echo var_dump($user['password']);
+  //  echo var_dump($data);
+    if (!$user)
+      return false;
+
+
+      return password_verify($data['password'],$user['password']);
+
+
+  }
+
+
+}
+
+
+advance tutorials
+How to Make Tut's
+
+https://www.youtube.com/channel/UCpnhvVlLh8LmGbW2lRaRwJg
+
+
+Alex Lancer
+https://www.youtube.com/c/AlexLancer/playlists
+
+
+
+/* side bar */
+
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus{
+  background-color: transparent;
+}
+
+#wrapper{
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar-wrapper
+{
+  margin-top: 56px;
+  z-index: 1000;
+  left:200px;
+  width:0;
+  height:100%;
+  margin-left: -220px;
+  overflow-y: auto;
+  overflow-x:hidden;
+  background: #1a1a1a;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#sidebar-wrapper::webkit-scrollbar{
+  display: none;
+}
+#wrapper.toggle #sidebar-wrapper{
+  width:220px
+}
+
+.navbar{
+  padding: 0;
+}
+
+.sidebar-nav{
+  position: absolute;
+  top:0;
+  width: 220px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+.sidebar-nav li{
+  position: relative;
+  line-height: 20px;
+  display: inline-block;
+  width:100%;
+}
+
+.sidebar-nav li:before{
+  content: '';
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width:3px;
+  background-color: #1c1c1c;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+}
+
+.sidebar-nav li:first-child{
+  color:#ff
+  background-color:#1a1a1a;
+}
+
+.sidebar-nav li:nth-child(5n+b):before{
+  background-color: #ec1b5a;
+}
+
+.sidebar-nav li:nth-child(5n+2):before{
+  background-color: #79aefe;
+}
+
+.sidebar-nav li:nth-child(5n+3):before{
+  background-color: #314190;
+}
+.sidebar-nav li:nth-child(5n+4):before{
+  background-color: #279636;
+}
+.sidebar-nav li:nth-child(5n+5):before{
+  background-color: #7d5d81;
+}
+
+.sidebar-nav li:hover:before,
+.sidebar-nav li.open:hover:before{
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+}
+
+.sidebar-nav li a{
+  display: block;
+  color:#ddd;
+  text-decoration: none;
+  padding: 10px 15px 10px 30px;
+}
+
+.sidebar-nav li a: hover,
+.sidebar-nav li a: active,
+.sidebar-nav li a: focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus{
+  color:#ffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.sidebar-header{
+  text-align: center;
+  font-size:20px;
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar-brand{
+  height: 60px;
+  position: relative;
+  background: #212531;
+  background: linear-gradient(to right bottom, #2f3441 50%, #212531 505);
+  padding-top: 1em;
+}
+
+.sidebar-brand a{
+  color: #ddd;
+}
+
+.sidebar-brand a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.dropdown-header{
+  text-align: center;
+  font-size: 1em;
+  color: #ddd;
+  background: linear-gradient(to right bottom, #2f3441 50%, #212531 505);
+}
+
+.sidebar-nav .dropdown-menu{
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #222;
+  box-shadow: none;
+
+}
+
+.dropdown-menu.show{
+  top:e;
+}
+
+.nav.sidebar-nav li a::before{
+  font-family: fontawesome;
+  content: "\f12e";
+  vertical-align: baseline;
+  display: inline-block;
+  padding-right: 5px;
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+
+}
+a[href*="#home"]::before{
+  content: "\f129"| important;
+  color:#0084b4;
+
+}
+
+.mitsis{
+  position: fixed;
+  top:100px;
+  z-index: 999;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+}
+
+.mitsis:hover;
+.mitsis:focus;
+.mitsis:active{
+  outline: none;
+}
+
+.mitsis.is-closed::before{
+  content: '';
+  display: block;
+  width: 100px;
+  font-size: 14px;
+  color:#fff;
+  line-height: 32px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.mitsis.is-closed:hover::before{
+  opacity: 1;
+  display: block;
+  -webkit-transform: translate3d(-100px,0,0);
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.mitsis.is-closed .mitsis-top,
+.mitsis.is-closed .mitsis-middle,
+.mitsis.is-closed .mitsis-bottom,
+.mitsis.is-open .mitsis-top,
+.mitsis.is-open .mitsis-middle,
+.mitsis.is-open .mitsis-bottom
+{
+  position: absolute;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+.mitsis.is-closed .mitsis-top,
+.mitsis.is-closed .mitsis-middle,
+.mitsis.is-closed .mitsis-bottom
+{
+  background-color: #1a1a1a;
+}
+
+.mitsis.is-closed .mitsis-top{
+  top:5px;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.mitsis.is-closed .mitsis-top{
+  top:50%;
+  margin-top: -2px;
+}
+
+.mitsis.is-closed .mitsis-bottom{
+  top:5px;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.mitsis.is-closed .mitsis-top{
+  top:0px;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.mitsis.is-open .mitsis-top,
+.mitsis.is-open .mitsis-middle,
+.mitsis.is-open .mitsis-bottom
+{
+  background-color: #1a1a1a;
+}
+
+.mitsis.is-closed .mitsis-top,
+.mitsis.is-closed .mitsis-bottom
+{
+  top:50%;
+  margin-top: -2px;
+}
+
+.mitsis.is-open .mitsis-top,
+
+{
+  -webkit-transform: rotate(-45deg);
+  -webkit-transition: -webkit-ransform .2s cubic-bezier(.73,1,.28,.08);
+}
+
+.mitsis.is-open .mitsis-bottom,
+{
+  -webkit-transform: rotate(-45deg);
+  -webkit-transition: -webkit-ransform .2s cubic-bezier(.73,1,.28,.08);
+
+}
+.mitsis.is-open:before{
+  content: '';
+  display: block;
+  width: 100px;
+  font-size: 14px;
+  color:#fff;
+  line-height: 32px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transition: all .35s ease-in-out;
+}
+
+
+.mitsis.is-open:hover:before{
+  opacity: 1;
+  display: block;
+  -webkit-transform: translate3d(100px,0,0);
+  -webkit-transition: all .35s ease-in-out;
+}
+
+.overlay{
+  position: fixed;
+  display: none;
+  width: 100px;
+  height: 100px;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(250, 250, 250, 0.8);
+  z-index: 1;
+
+}

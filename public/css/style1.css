@@ -1,0 +1,26 @@
+body{
+  background-color: #f4f4f4;
+}
+
+.main-color-bg{
+  background-color: #e74c3c | important;
+  border-color: #c0392b | imprtant;
+  color: #ffffff;
+}
+
+
+#header{
+  background: #33333333;
+  color: #ffffffff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+
+}
+
+#header .create{
+  padding-top: 20px;
+}
+
+#bradcrumb{
+
+}

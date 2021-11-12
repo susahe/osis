@@ -1,0 +1,45 @@
+body{
+  background-color: #f4f4f4;
+}
+#login{
+  margin-top: 30px;
+
+}
+.main-color-bg{
+  background-color: #e74c3c | important;
+  border-color: #c0392b | imprtant;
+  color: #ffffff;
+}
+#header{
+  background: #33333333;
+  color: #ffffffff;
+  padding-top:5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+#header .create{
+  padding-top: 20px;
+}
+#bradcrumb{
+  padding-top: 0px;
+}
+#dasbhoard{
+  margin-top: 30px;
+
+}
+
+.pad{
+  margin-top:10px;
+}
+
+.userstatus{
+  width:35px;
+  height:40px;
+}
+
+.coursetatus{
+  width:40px;
+  height:20px;
+
+}
